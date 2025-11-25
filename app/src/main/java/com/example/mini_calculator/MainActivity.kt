@@ -62,14 +62,11 @@ class MainActivity : AppCompatActivity() {
 
         btnEquals.setOnClickListener {
             num2 = tv1.text.toString()
-            if (operator == "plus")
-                answ = num1.toDouble() + num2.toDouble()
-            else if (operator == "minus")
-                answ = num1.toDouble() - num2.toDouble()
-            else if (operator == "multiply")
-                answ = num1.toDouble() * num2.toDouble()
-            else if (operator == "divide")
-                answ = num1.toDouble() / num2.toDouble()
+            if (operator == "plus") answ = num1.toDouble() + num2.toDouble()
+            else if (operator == "minus") answ = num1.toDouble() - num2.toDouble()
+            else if (operator == "multiply") answ = num1.toDouble() * num2.toDouble()
+            else if (operator == "divide") answ = num1.toDouble() / num2.toDouble()
+
 
             tv1.setText(answ.toString())
         }
