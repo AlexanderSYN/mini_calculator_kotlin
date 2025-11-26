@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             else if (operator == "multiply") answ = num1.toDouble() * num2.toDouble()
             else if (operator == "divide") answ = num1.toDouble() / num2.toDouble()
 
-
             tv1.setText(answ.toString())
         }
 
