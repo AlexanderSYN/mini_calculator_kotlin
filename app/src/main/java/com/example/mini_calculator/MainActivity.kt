@@ -26,49 +26,88 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         
-        // get id tv1
-        val tv1 : EditText = findViewById(R.id.tv1)
+        // get id all editText
+        val etNum1 = findViewById<EditText>(R.id.etFirstNum)
+        val etNum2 = findViewById<EditText>(R.id.etSecondNum)
+        val etSymbol = findViewById<EditText>(R.id.etSymbol)
+
+        val et1 = findViewById<EditText>(R.id.et1)
 
         // get id btn
-        val btnPlus : Button = findViewById(R.id.btnPlus)
-        val btnMinus : Button = findViewById(R.id.btnMinus)
-        val btnMultiply : Button = findViewById(R.id.btnMult)
-        val btnDivide : Button = findViewById(R.id.btnDivide)
-        val btnEquals : Button = findViewById(R.id.btnEquals)
+        val btnPlus = findViewById<Button>(R.id.btnPl)
+        val btnMinus = findViewById<Button>(R.id.btnMin)
+        val btnMultiply = findViewById<Button>(R.id.btnMul)
+        val btnDivide = findViewById<Button>(R.id.btnDiv)
+        val btnEquals = findViewById<Button>(R.id.btnEquals)
+        val btnClear = findViewById<Button>(R.id.btnC)
 
         btnPlus.setOnClickListener {
-            num1 = tv1.text.toString()
+            num1 = et1.text.toString()
+            etNum1.setText(num1.toString())
+            etSymbol.setText("+")
+
             operator = "plus"
-            tv1.setText("")
+            et1.setHint("0")
+            et1.text.clear()
         }
 
         btnMinus.setOnClickListener {
-            num1 = tv1.text.toString()
+            num1 = et1.text.toString()
+            etNum1.setText(num1.toString())
+            etSymbol.setText("-")
+
             operator = "minus"
-            tv1.setText("")
+            et1.setHint("0")
+            et1.text.clear()
         }
 
         btnMultiply.setOnClickListener {
-            num1 = tv1.text.toString()
+            num1 = et1.text.toString()
+            etNum1.setText(num1.toString())
+            etSymbol.setText("*")
+
             operator = "multiply"
-            tv1.setText("")
+            et1.setHint("0")
+            et1.text.clear()
         }
 
         btnDivide.setOnClickListener {
-            num1 = tv1.text.toString()
+            num1 = et1.text.toString()
+            etNum1.setText(num1.toString())
+            etSymbol.setText("/")
+
             operator = "divide"
-            tv1.setText("")
+            et1.setHint("0")
+            et1.text.clear()
+        }
+
+        btnClear.setOnClickListener {
+            et1.text.clear()
         }
 
         btnEquals.setOnClickListener {
-            num2 = tv1.text.toString()
-            if (operator == "plus") answ = num1.toDouble() + num2.toDouble()
-            else if (operator == "minus") answ = num1.toDouble() - num2.toDouble()
-            else if (operator == "multiply") answ = num1.toDouble() * num2.toDouble()
-            else if (operator == "divide") answ = num1.toDouble() / num2.toDouble()
+           try {
+               num2 = et1.text.toString()
+               etNum2.setText(num2.toString())
+               if (operator == "plus") answ = num1.toDouble() + num2.toDouble()
+               else if (operator == "minus") answ = num1.toDouble() - num2.toDouble()
+               else if (operator == "multiply") answ = num1.toDouble() * num2.toDouble()
+               else if (operator == "divide") {
+                   answ = num1.toDouble() / num2.toDouble()
+                   if (answ.toString() == "Infinity" || answ.toString() == "-Infinity") throw ArithmeticException("нельзя делить на 0")
+               }
 
 
-            tv1.setText(answ.toString())
+               et1.setText(answ.toString())
+           }
+           catch (AE: ArithmeticException) {
+               et1.text.clear()
+               et1.setHint("нельзя делить на 0")
+           }
+           catch (e : Exception) {
+               et1.text.clear()
+               et1.setHint("Ошибка: " + e)
+           }
         }
 
     }

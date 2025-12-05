@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">mini_calculator</string>
+    <string name="symbol_plus">+</string>
+    <string name="symbol_minus">-</string>
+    <string name="symbol_multiply">*</string>
+    <string name="symbol_divide">/</string>
+    <string name="symbol_clear">C</string>
+    <string name="symbol_equals">=</string>
+
+    <string name="text_first_num">1 число</string>
+    <string name="text_second_num">2 число</string>
+    <string name="text_symbol">знак</string>
+
 </resources>

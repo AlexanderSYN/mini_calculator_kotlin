@@ -7,60 +7,143 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/panel0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <EditText
+            android:id="@+id/etFirstNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:hint="@string/text_first_num"
+            android:enabled="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/etSymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:text=""
+            android:hint="@string/text_symbol"
+            android:enabled="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panel0_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/panel0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <EditText
+            android:id="@+id/etSecondNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text=""
+            android:hint="@string/text_second_num"
+            android:enabled="false"
+            android:focusable="false"
+            android:cursorVisible="false"
+            />
+
+    </LinearLayout>
+
     <EditText
-        android:id="@+id/tv1"
+        android:id="@+id/et1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
         android:text=""
+        android:inputType="phone"
+        android:hint="0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/panel0_1"
         />
 
     <LinearLayout
+        android:id="@+id/panel1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv1"
+        app:layout_constraintTop_toBottomOf="@id/et1"
         >
 
         <Button
-            android:id="@+id/btnPlus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnPl"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:text="+" />
+            android:text="@string/symbol_plus" />
 
         <Button
-            android:id="@+id/btnMinus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnMin"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:text="-" />
+            android:text="@string/symbol_minus" />
 
         <Button
-            android:id="@+id/btnMult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnMul"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:text="*" />
+            android:text="@string/symbol_multiply" />
 
         <Button
-            android:id="@+id/btnDivide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnDiv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:text="/" />
+            android:text="@string/symbol_divide" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/panel1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <Button
+            android:id="@+id/btnC"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="@string/symbol_clear" />
 
         <Button
             android:id="@+id/btnEquals"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            android:text="=" />
+            android:text="@string/symbol_equals" />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
